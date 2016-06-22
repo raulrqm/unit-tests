@@ -60,11 +60,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Quita el prefijo exercise_ para ejecutar la prueba
-     *
      * @expectedException Styde\ContainerException
+     * @expectedExceptionMessage Unable to build [Norf]: Class Norf does not exist
      */
-    public function exercise_test_class_does_not_exist()
+    public function test_class_does_not_exist()
     {
         $container = new Container();
 
