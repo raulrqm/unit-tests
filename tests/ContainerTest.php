@@ -10,7 +10,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     {
         $container = new Container();
 
-        $container->bind('key', function () s{
+        $container->bind('key', function (){
             return 'Object';
         });
 
@@ -83,7 +83,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function exercise_test_container_make_with_default_arguments()
+    public function test_container_make_with_default_arguments()
     {
         $container = new Container();
 

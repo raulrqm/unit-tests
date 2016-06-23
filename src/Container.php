@@ -72,6 +72,9 @@ class Container
             if (isset ($arguments[$parameterName])) {
                 $dependencies[] = $arguments[$parameterName];
                 continue;
+            } elseif ($constructorParameter->isDefaultValueAvailable()) {
+                $dependencies[] = $constructorParameter->getDefaultValue();
+                continue;
             }
 
             try {
@@ -84,9 +87,6 @@ class Container
                 $parameterClassName = $parameterClass->getName();
                 $dependencies[] = $this->build($parameterClassName);
             } else {
-
-
-
                 throw new ContainerException("Please provide the value of the parameter [$parameterName]");
             }
         }
